@@ -12,4 +12,7 @@
 class Bookmark < ApplicationRecord
     validates :sublessee_id, :presence => true
     validates :listing_id, :presence => true
+    
+    belongs_to :sublessee, :class_name => "User"
+    belongs_to :listing
 end
