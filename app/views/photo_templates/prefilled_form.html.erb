@@ -1,0 +1,43 @@
+<h1>
+  Edit photo #<%= @photo.id %>
+</h1>
+
+<hr>
+
+<%= render("photo_templates/validation_failures.html.erb") %>
+
+<form action="/update_photo_record/<%= @photo.id %>" method="post">
+  <div>
+    <label for="photo_caption">
+      Photo caption
+    </label>
+
+    <input type="text" id="photo_caption" name="photo_caption" value="<%= @photo.photo_caption %>">
+  </div>
+
+  <div>
+    <label for="listing_id">
+      Listing
+    </label>
+
+    <input type="text" id="listing_id" name="listing_id" value="<%= @photo.listing_id %>">
+  </div>
+
+  <div>
+    <label for="url">
+      Url
+    </label>
+
+    <input type="text" id="url" name="url" value="<%= @photo.url %>">
+  </div>
+
+  <button>
+    Update photo
+  </button>
+</form>
+
+<hr>
+
+<a href="/photos">
+  Go back
+</a>

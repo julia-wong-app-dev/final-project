@@ -1,0 +1,145 @@
+<h1>
+  Listing #<%= @listing.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/listings">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_listing_form/<%= @listing.id %>">
+      Edit listing
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_listing/<%= @listing.id %>">
+      Delete listing
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Housing type
+  </dt>
+  <dd>
+    <%= @listing.housing_type %>
+  </dd>
+
+  <dt>
+    City
+  </dt>
+  <dd>
+    <%= @listing.city %>
+  </dd>
+
+  <dt>
+    Neighborhood
+  </dt>
+  <dd>
+    <%= @listing.neighborhood %>
+  </dd>
+
+  <dt>
+    Number of guests
+  </dt>
+  <dd>
+    <%= @listing.number_of_guests %>
+  </dd>
+
+  <dt>
+    Number of bedrooms
+  </dt>
+  <dd>
+    <%= @listing.number_of_bedrooms %>
+  </dd>
+
+  <dt>
+    Number of bathrooms
+  </dt>
+  <dd>
+    <%= @listing.number_of_bathrooms %>
+  </dd>
+
+  <dt>
+    State
+  </dt>
+  <dd>
+    <%= @listing.state %>
+  </dd>
+
+  <dt>
+    Country
+  </dt>
+  <dd>
+    <%= @listing.country %>
+  </dd>
+
+  <dt>
+    Amenities
+  </dt>
+  <dd>
+    <%= @listing.amenities %>
+  </dd>
+
+  <dt>
+    Description
+  </dt>
+  <dd>
+    <%= @listing.description %>
+  </dd>
+
+  <dt>
+    Monthly price
+  </dt>
+  <dd>
+    <%= @listing.monthly_price %>
+  </dd>
+
+  <dt>
+    Sublessor
+  </dt>
+  <dd>
+    <%= @listing.sublessor_id %>
+  </dd>
+
+  <dt>
+    Available from
+  </dt>
+  <dd>
+    <%= @listing.available_from %>
+  </dd>
+
+  <dt>
+    Available till
+  </dt>
+  <dd>
+    <%= @listing.available_till %>
+  </dd>
+
+  <dt>
+    Zip code
+  </dt>
+  <dd>
+    <%= @listing.zip_code %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@listing.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@listing.updated_at) %> ago
+  </dd>
+</dl>
+

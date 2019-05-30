@@ -1,0 +1,61 @@
+<h1>
+  Photo #<%= @photo.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/photos">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_photo_form/<%= @photo.id %>">
+      Edit photo
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_photo/<%= @photo.id %>">
+      Delete photo
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Photo caption
+  </dt>
+  <dd>
+    <%= @photo.photo_caption %>
+  </dd>
+
+  <dt>
+    Listing
+  </dt>
+  <dd>
+    <%= @photo.listing_id %>
+  </dd>
+
+  <dt>
+    Url
+  </dt>
+  <dd>
+    <%= @photo.url %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@photo.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@photo.updated_at) %> ago
+  </dd>
+</dl>
+

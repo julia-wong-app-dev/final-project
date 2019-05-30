@@ -1,0 +1,74 @@
+<h1>
+  Photo list
+</h1>
+
+<a href="/new_photo_form">
+  Add a new photo
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Photo caption
+    </th>
+
+    <th>
+      Listing
+    </th>
+
+    <th>
+      Url
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @photos.each do |photo| %>
+  <tr>
+    <td>
+      <%= photo.id %>
+    </td>
+
+    <td>
+      <%= photo.photo_caption %>
+    </td>
+
+    <td>
+      <%= photo.listing_id %>
+    </td>
+
+    <td>
+      <%= photo.url %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(photo.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(photo.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/photos/<%= photo.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>
