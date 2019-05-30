@@ -26,4 +26,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  has_many :listings, :foreign_key => "sublessor_id", :dependent => :destroy
+  has_many :bookmarks, :foreign_key => "sublessee_id", :dependent => :destroy
+  
+  has_many :bookmarked_listings, :through => :bookmarks, :source => :listing
+  has_many :potential_sublessors, :through => :bookmarked_listings, :source => :sublessor
+  has_many :potential_sublessees, :through => :listings, :source => :interested_sublessees
 end
