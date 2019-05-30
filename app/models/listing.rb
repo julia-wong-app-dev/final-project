@@ -23,4 +23,5 @@
 #
 
 class Listing < ApplicationRecord
+    validates :sublessor_id, :presence => true
 end

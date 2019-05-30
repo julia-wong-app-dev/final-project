@@ -11,4 +11,5 @@
 #
 
 class Photo < ApplicationRecord
+    validates :listing_id, :presence => true
 end

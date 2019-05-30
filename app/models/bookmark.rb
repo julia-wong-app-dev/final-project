@@ -10,4 +10,6 @@
 #
 
 class Bookmark < ApplicationRecord
+    validates :sublessee_id, :presence => true
+    validates :listing_id, :presence => true
 end
