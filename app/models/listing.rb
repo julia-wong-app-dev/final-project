@@ -24,4 +24,10 @@
 
 class Listing < ApplicationRecord
     validates :sublessor_id, :presence => true
+    
+    belongs_to :sublessor, :class_name => "User"
+    has_many :photos, :dependent => :destroy
+    has_many :bookmarks, :dependent => :destroy
+
+    has_many :interested_sublessees, :through => :bookmarks, :source => :sublessee
 end
