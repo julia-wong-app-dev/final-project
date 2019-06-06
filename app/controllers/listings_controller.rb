@@ -1,4 +1,7 @@
 class ListingsController < ApplicationController
+  
+  skip_before_action :authenticate_user!, {:only => :list}
+  
   def list
     @listings = Listing.all
 
@@ -85,5 +88,11 @@ class ListingsController < ApplicationController
     @listing.destroy
 
     redirect_to("/listings", { :notice => "Listing deleted successfully." })
+  end
+  
+  def most_bookmarked
+    @listing = Listing.all.order({ :likes_count => :desc }).limit(25)
+
+    render("listing_templates/bookmarked_list.html.erb")
   end
 end

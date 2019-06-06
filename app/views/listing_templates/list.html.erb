@@ -81,6 +81,10 @@
     <th>
       Updated at
     </th>
+    
+    <th>
+      Times bookmarked
+    </th>
 
     <th>
     </th>
@@ -158,6 +162,10 @@
 
     <td>
       <%= time_ago_in_words(listing.updated_at) %> ago
+    </td>
+    
+    <td>
+      <%= pluralize(listing.bookmarks.count, "bookmarks") %>
     </td>
 
     <td>

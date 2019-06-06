@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Change Me!</title>
+    <title>Sublet Sign In</title>
 
     <!-- Expand the characters we can use beyond basic ASCII 🎉 -->
     <meta charset="utf-8">
@@ -22,23 +22,98 @@
 
     <!-- START BOOTSTRAP -->
     <!-- Connect Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- Connect Bootstrap JavaScript -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- Make it responsive to small screens -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- END BOOTSTRAP -->
   </head>
 
-  <body>
+  <div class="container">
 
     <!-- ↓↓↓ Your view templates all get plugged in below ↓↓↓ -->
+    <nav>
+      <div>
+        <a href="/">
+          <i class="fab fa-firstdraft fa-fw"></i>
+          
+          Home
+        </a>
+      </div>
+      
+      <div>
+        <a href="/bookmarks">
+          <i class="fas fa-heart"></i>
+
+          My Bookmarks
+        </a>
+      </div>
+
+      <div>
+        <a href="/new_listing_form">
+          <i class="fas fa-plus fa-fw"></i>
+
+          Add Listing
+        </a>
+      </div>
+
+      <div>
+        <a href="/listings">
+          <i class="fas fa-clock fa-fw"></i>
+
+          Recent
+        </a>
+      </div>
+
+      <div>
+        <a href="/popular">
+          <i class="fas fa-fire fa-fw"></i>
+
+          Popular
+        </a>
+      </div>
+
+      <hr>
+
+      <% if current_user.blank? %>
+        <div>
+          <a href="/users/sign_in">
+            Sign in
+          </a>
+        </div>
+
+        <div>
+          <a href="/users/sign_up">
+            Sign up
+          </a>
+        </div>
+        
+      <% else %>
+        <div>
+          <a href="/users/edit">
+            Edit profile
+          </a>
+        </div>
+
+        <div>
+          <a href="/users/sign_out" data-method="delete">
+            Sign out
+          </a>
+        </div>
+      <% end %>
+    </nav>
+    
     <%= yield %>
+    
+    
     <!-- ↑↑↑ Your view templates all get plugged in above ↑↑↑ -->
     
-  </body>
+    
+    
+  </div>
 </html>

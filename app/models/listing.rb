@@ -30,4 +30,9 @@ class Listing < ApplicationRecord
     has_many :bookmarks, :dependent => :destroy
 
     has_many :interested_sublessees, :through => :bookmarks, :source => :sublessee
+    
+    def bookmarks
+        return Bookmark.where(:listing_id => self.id)
+    end
+    
 end

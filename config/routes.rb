@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
+  
   # Routes for the Photo resource:
 
   # CREATE
@@ -56,7 +59,26 @@ Rails.application.routes.draw do
 
   #------------------------------
 
-  devise_for :users
+  # Routes for the User resource:
+  
+  # CREATE
+  
+  # READ
+  match("/users/:id_to_display", { :controller => "users", :action => "details", :via => "get" })
+  
+  # UPDATE
+  
+  # DELETE
+  
+  #------------------------------
+  
+  # Route to home page
+  
+  match("/", { :controller => "listings", :action => "list", :via => "get" })
+  
+  #------------------------------
+  
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
