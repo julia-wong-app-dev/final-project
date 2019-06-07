@@ -93,6 +93,6 @@ class ListingsController < ApplicationController
   def most_bookmarked
     @listing = Listing.all.order({ :likes_count => :desc }).limit(25)
 
-    render("listing_templates/bookmarked_list.html.erb")
+    render("listing_templates/popular.html.erb")
   end
 end

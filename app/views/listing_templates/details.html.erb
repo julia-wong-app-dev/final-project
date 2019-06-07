@@ -32,6 +32,7 @@
   <thead>
     <tr>
       <th scope="col">Sublessor</th>
+      <th scope="col">Times Bookmarked</th>
       <th scope="col">Listing Created At</th>
       <th scope="col">Listing Updated At</th>
     </tr>
@@ -39,9 +40,15 @@
   <tbody>
     <tr>
       <td>
-        <%= @listing.sublessor.first_name + " " + @listing.sublessor.last_name %>
+        <a href="/users/<%= @listing.sublessor.id %>">
+          <%= @listing.sublessor.first_name + " " + @listing.sublessor.last_name %>
+        </a>
       </td>
     
+      <td>
+        <%= @listing.bookmarks.count %>
+      </td>
+      
       <td>
         <%= time_ago_in_words(@listing.created_at) %> ago
       </td>
@@ -88,6 +95,39 @@
 
 <br>
 
+<!------------------- Pricing & Availability ------------------->
+
+<h5>Pricing & Availability</h5>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Monthly Price</th>
+      <th scope="col">Available From</th>
+      <th scope="col">Available Till</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>
+        <%= @listing.monthly_price %>
+      </td>
+    
+      <td>
+        <%= @listing.available_from %>
+      </td>
+    
+      <td>
+        <%= @listing.available_till %>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+
+<br>
+
 <!------------------- Location ------------------->
 
 <h5>Location</h5>
@@ -126,39 +166,6 @@
       </td>
     </tr>
   </tbody>
-</table>
-
-<br>
-
-<!------------------- Pricing & Availability ------------------->
-
-<h5>Pricing & Availability</h5>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Monthly Price</th>
-      <th scope="col">Available From</th>
-      <th scope="col">Available Till</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td>
-        <%= @listing.monthly_price %>
-      </td>
-    
-      <td>
-        <%= @listing.available_from %>
-      </td>
-    
-      <td>
-        <%= @listing.available_till %>
-      </td>
-    </tr>
-  </tbody>
-
 </table>
 
 <br>

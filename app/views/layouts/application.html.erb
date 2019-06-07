@@ -102,14 +102,15 @@
 
         <div>
           <a href="/users/sign_out" data-method="delete">
-            Sign out as <% current_user %>
+            Sign out as <%= current_user.first_name + " " + current_user.last_name %>
           </a>
         </div>
       <% end %>
     </nav>
     
-    <%= yield %>
+    <hr>
     
+    <%= yield %>
     
     <!-- ↑↑↑ Your view templates all get plugged in above ↑↑↑ -->
     

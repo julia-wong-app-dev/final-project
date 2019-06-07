@@ -22,124 +22,60 @@
   </div>
 </div>
 
-<dl>
-  <dt>
-    Housing type
-  </dt>
-  <dd>
-    <%= @listing.housing_type %>
-  </dd>
+<h2>Own Listings</h2>
 
-  <dt>
-    City
-  </dt>
-  <dd>
-    <%= @listing.city %>
-  </dd>
+<table>
+  <tr>
+    <th>Housing type</th>
+    <th># of guests</th>
+    <th># of bedrooms</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Monthly price</th>
+    <th>Times bookmarked</th>
+    <th>Created at</th>
+    <th></th>
+  </tr>
 
-  <dt>
-    Neighborhood
-  </dt>
-  <dd>
-    <%= @listing.neighborhood %>
-  </dd>
+  <% @listings.each do |listing| %>
+  <tr>
+    <td>
+      <%= listing.housing_type %>
+    </td>
 
-  <dt>
-    Number of guests
-  </dt>
-  <dd>
-    <%= @listing.number_of_guests %>
-  </dd>
+    <td>
+      <%= listing.number_of_guests %>
+    </td>
 
-  <dt>
-    Number of bedrooms
-  </dt>
-  <dd>
-    <%= @listing.number_of_bedrooms %>
-  </dd>
+    <td>
+      <%= listing.number_of_bedrooms %>
+    </td>
 
-  <dt>
-    Number of bathrooms
-  </dt>
-  <dd>
-    <%= @listing.number_of_bathrooms %>
-  </dd>
+    <td>
+      <%= listing.city %>
+    </td>
 
-  <dt>
-    State
-  </dt>
-  <dd>
-    <%= @listing.state %>
-  </dd>
+    <td>
+      <%= listing.state %>
+    </td>
+    
+    <td>
+      <%= listing.monthly_price %>
+    </td>
+    
+    <td>
+       <%= pluralize(listing.bookmarks.count, "bookmarks") %>
+    </td>
+    
+    <td>
+      <%= time_ago_in_words(listing.created_at) %> ago
+    </td>
 
-  <dt>
-    Country
-  </dt>
-  <dd>
-    <%= @listing.country %>
-  </dd>
-
-  <dt>
-    Amenities
-  </dt>
-  <dd>
-    <%= @listing.amenities %>
-  </dd>
-
-  <dt>
-    Description
-  </dt>
-  <dd>
-    <%= @listing.description %>
-  </dd>
-
-  <dt>
-    Monthly price
-  </dt>
-  <dd>
-    <%= @listing.monthly_price %>
-  </dd>
-
-  <dt>
-    Sublessor
-  </dt>
-  <dd>
-    <%= @listing.sublessor_id %>
-  </dd>
-
-  <dt>
-    Available from
-  </dt>
-  <dd>
-    <%= @listing.available_from %>
-  </dd>
-
-  <dt>
-    Available till
-  </dt>
-  <dd>
-    <%= @listing.available_till %>
-  </dd>
-
-  <dt>
-    Zip code
-  </dt>
-  <dd>
-    <%= @listing.zip_code %>
-  </dd>
-
-  <dt>
-    Created at
-  </dt>
-  <dd>
-    <%= time_ago_in_words(@listing.created_at) %> ago
-  </dd>
-
-  <dt>
-    Updated at
-  </dt>
-  <dd>
-    <%= time_ago_in_words(@listing.updated_at) %> ago
-  </dd>
-</dl>
-
+    <td>
+      <a href="/listings/<%= listing.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

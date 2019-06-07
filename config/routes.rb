@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   # READ
   match("/bookmarks", { :controller => "bookmarks", :action => "list", :via => "get" })
   match("/bookmarks/:id_to_display", { :controller => "bookmarks", :action => "details", :via => "get" })
+  match("/users/:id/bookmarks", { :controller => "users", :action => "bookmarked", :via => "get" })
 
   # UPDATE
   match("/existing_bookmark_form/:id_to_prefill", { :controller => "bookmarks", :action => "prefilled_form", :via => "get" })
@@ -49,6 +50,7 @@ Rails.application.routes.draw do
   # READ
   match("/listings", { :controller => "listings", :action => "list", :via => "get" })
   match("/listings/:id_to_display", { :controller => "listings", :action => "details", :via => "get" })
+  match("/popular", { :controller => "listings", :action => "most_bookmarked", :via => "get" })
 
   # UPDATE
   match("/existing_listing_form/:id_to_prefill", { :controller => "listings", :action => "prefilled_form", :via => "get" })

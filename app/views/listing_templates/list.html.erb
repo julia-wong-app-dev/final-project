@@ -1,13 +1,8 @@
 <h1>
-  Listing list
+  Recent Listings
 </h1>
 
-<a href="/new_listing_form">
-  Add a new listing
-</a>
-
 <hr>
-
 <table>
   <tr>
     <th>
@@ -19,47 +14,23 @@
     </th>
 
     <th>
+      # of bedrooms
+    </th>
+
+    <th>
+      # of bathrooms
+    </th>
+
+    <th>
       City
     </th>
-
-    <th>
-      Neighborhood
-    </th>
-
-    <th>
-      Number of guests
-    </th>
-
-    <th>
-      Number of bedrooms
-    </th>
-
-    <th>
-      Number of bathrooms
-    </th>
-
+    
     <th>
       State
     </th>
 
     <th>
-      Country
-    </th>
-
-    <th>
-      Amenities
-    </th>
-
-    <th>
-      Description
-    </th>
-
-    <th>
       Monthly price
-    </th>
-
-    <th>
-      Sublessor
     </th>
 
     <th>
@@ -70,18 +41,6 @@
       Available till
     </th>
 
-    <th>
-      Zip code
-    </th>
-
-    <th>
-      Created at
-    </th>
-
-    <th>
-      Updated at
-    </th>
-    
     <th>
       Times bookmarked
     </th>
@@ -101,18 +60,6 @@
     </td>
 
     <td>
-      <%= listing.city %>
-    </td>
-
-    <td>
-      <%= listing.neighborhood %>
-    </td>
-
-    <td>
-      <%= listing.number_of_guests %>
-    </td>
-
-    <td>
       <%= listing.number_of_bedrooms %>
     </td>
 
@@ -121,27 +68,15 @@
     </td>
 
     <td>
+      <%= listing.city %>
+    </td>
+    
+    <td>
       <%= listing.state %>
     </td>
 
     <td>
-      <%= listing.country %>
-    </td>
-
-    <td>
-      <%= listing.amenities %>
-    </td>
-
-    <td>
-      <%= listing.description %>
-    </td>
-
-    <td>
       <%= listing.monthly_price %>
-    </td>
-
-    <td>
-      <%= listing.sublessor_id %>
     </td>
 
     <td>
@@ -152,18 +87,6 @@
       <%= listing.available_till %>
     </td>
 
-    <td>
-      <%= listing.zip_code %>
-    </td>
-
-    <td>
-      <%= time_ago_in_words(listing.created_at) %> ago
-    </td>
-
-    <td>
-      <%= time_ago_in_words(listing.updated_at) %> ago
-    </td>
-    
     <td>
       <%= pluralize(listing.bookmarks.count, "bookmarks") %>
     </td>
