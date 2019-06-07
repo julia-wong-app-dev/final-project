@@ -22,124 +22,177 @@
   </div>
 </div>
 
-<dl>
-  <dt>
-    Housing type
-  </dt>
-  <dd>
-    <%= @listing.housing_type %>
-  </dd>
+<br>
 
-  <dt>
-    City
-  </dt>
-  <dd>
-    <%= @listing.city %>
-  </dd>
+<!------------------- Sublessor & Listing History ------------------->
 
-  <dt>
-    Neighborhood
-  </dt>
-  <dd>
-    <%= @listing.neighborhood %>
-  </dd>
+<h5>Sublessor & Listing History</h5>
 
-  <dt>
-    Number of guests
-  </dt>
-  <dd>
-    <%= @listing.number_of_guests %>
-  </dd>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sublessor</th>
+      <th scope="col">Listing Created At</th>
+      <th scope="col">Listing Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= @listing.sublessor.first_name + " " + @listing.sublessor.last_name %>
+      </td>
+    
+      <td>
+        <%= time_ago_in_words(@listing.created_at) %> ago
+      </td>
+    
+      <td>
+        <%= time_ago_in_words(@listing.updated_at) %> ago
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-  <dt>
-    Number of bedrooms
-  </dt>
-  <dd>
-    <%= @listing.number_of_bedrooms %>
-  </dd>
+<br>
 
-  <dt>
-    Number of bathrooms
-  </dt>
-  <dd>
-    <%= @listing.number_of_bathrooms %>
-  </dd>
+<!------------------- Capacity ------------------->
 
-  <dt>
-    State
-  </dt>
-  <dd>
-    <%= @listing.state %>
-  </dd>
+<h5>Capacity</h5>
 
-  <dt>
-    Country
-  </dt>
-  <dd>
-    <%= @listing.country %>
-  </dd>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"># of guests</th>
+      <th scope="col"># of bedrooms</th>
+      <th scope="col"># of bathrooms</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>
+        <%= @listing.number_of_guests %>
+      </td>
+    
+      <td>
+        <%= @listing.number_of_bedrooms %>
+      </td>
+    
+      <td>
+        <%= @listing.number_of_bathrooms %>
+      </td>
+    </tr>
+  </tbody>
 
-  <dt>
-    Amenities
-  </dt>
-  <dd>
-    <%= @listing.amenities %>
-  </dd>
+</table>
 
-  <dt>
-    Description
-  </dt>
-  <dd>
-    <%= @listing.description %>
-  </dd>
+<br>
 
-  <dt>
-    Monthly price
-  </dt>
-  <dd>
-    <%= @listing.monthly_price %>
-  </dd>
+<!------------------- Location ------------------->
 
-  <dt>
-    Sublessor
-  </dt>
-  <dd>
-    <%= @listing.sublessor_id %>
-  </dd>
+<h5>Location</h5>
 
-  <dt>
-    Available from
-  </dt>
-  <dd>
-    <%= @listing.available_from %>
-  </dd>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">City</th>
+      <th scope="col">Neighborhood</th>
+      <th scope="col">State</th>
+      <th scope="col">Zip Code</th>
+      <th scope="col">Country</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>
+        <%= @listing.city %>
+      </td>
+    
+      <td>
+        <%= @listing.neighborhood %>
+      </td>
+    
+      <td>
+        <%= @listing.state %>
+      </td>
+      
+      <td>
+        <%= @listing.zip_code %>
+      </td>
+    
+      <td>
+        <%= @listing.country %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-  <dt>
-    Available till
-  </dt>
-  <dd>
-    <%= @listing.available_till %>
-  </dd>
+<br>
 
-  <dt>
-    Zip code
-  </dt>
-  <dd>
-    <%= @listing.zip_code %>
-  </dd>
+<!------------------- Pricing & Availability ------------------->
 
-  <dt>
-    Created at
-  </dt>
-  <dd>
-    <%= time_ago_in_words(@listing.created_at) %> ago
-  </dd>
+<h5>Pricing & Availability</h5>
 
-  <dt>
-    Updated at
-  </dt>
-  <dd>
-    <%= time_ago_in_words(@listing.updated_at) %> ago
-  </dd>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Monthly Price</th>
+      <th scope="col">Available From</th>
+      <th scope="col">Available Till</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>
+        <%= @listing.monthly_price %>
+      </td>
+    
+      <td>
+        <%= @listing.available_from %>
+      </td>
+    
+      <td>
+        <%= @listing.available_till %>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+
+<br>
+
+<!------------------- Details ------------------->
+
+<h5>Details</h5>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Housing Type</th>
+      <th scope="col">Amenities</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>
+        <%= @listing.housing_type %>
+      </td>
+    
+      <td>
+        <%= @listing.amenities %>
+      </td>
+    
+      <td>
+        <%= @listing.description %>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+
 </dl>
 

@@ -7,7 +7,7 @@
 #  city                :string
 #  neighborhood        :string
 #  number_of_guests    :integer
-#  number_of_bedrooms  :float
+#  number_of_bedrooms  :integer
 #  number_of_bathrooms :float
 #  state               :string
 #  country             :string

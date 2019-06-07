@@ -72,16 +72,15 @@
         Housing type
       </label>
       
-      <!-- <input type="text" id="housing_type" name="housing_type" value="<!%= @listing.housing_type %>" placeholder="Select housing type">  -->
+      <!--<input type="text" class="form-control" id="housing_type" name="housing_type" placeholder="Select housing type"> -->
       
-      <div>
-        <select class="form-control" id="housing_type" value="<!%= @listing.housing_type %>">
-          <option selected>Select from menu</option>
-          <option value="1">Entire place</option>
-          <option value="2">Private room</option>
-          <option value="3">Shared room</option>
-        </select>
-      </div>
+      <select class="form-control" id="housing_type" name="housing_type" value="<%= @listing.housing_type %>" placeholder="Select housing type">
+        <option selected>Select from menu</option>
+        <option value="1">Entire place</option>
+        <option value="2">Private room</option>
+        <option value="3">Shared room</option>
+      </select>
+      
     </div>
     
     <div class="col-4">
@@ -194,17 +193,24 @@
       <label for="available_from">
         Available from
       </label>
-      <input type="text" id="available_from" name="available_from" value="<%= @listing.available_from %>">
+      <input type="text" id="available_from" name="available_from" value="<%= @listing.available_from %>" placeholder="dd-mm-yyyy">
     </div>
     
     <div class="col-4">
       <label for="available_till">
         Available till
       </label>
-      <input type="text" id="available_till" name="available_till" value="<%= @listing.available_till %>">
+      <input type="text" id="available_till" name="available_till" value="<%= @listing.available_till%>" placeholder="dd-mm-yyyy" >
     </div>
   </div>
 </div>  
+
+<br>
+
+<!--<div class="input-append date" id="datepicker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
+    <input class="span2" size="16" type="text" value="12-02-2012">
+    <span class="add-on"><i class="icon-th"></i></span>
+</div>
 
 <br>
 

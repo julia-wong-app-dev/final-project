@@ -34,7 +34,7 @@ class ListingsController < ApplicationController
     @listing.amenities = params.fetch("amenities")
     @listing.description = params.fetch("description")
     @listing.monthly_price = params.fetch("monthly_price")
-    @listing.sublessor_id = params.fetch("sublessor_id")
+    @listing.sublessor_id = current_user.id
     @listing.available_from = params.fetch("available_from")
     @listing.available_till = params.fetch("available_till")
     @listing.zip_code = params.fetch("zip_code")
@@ -68,7 +68,7 @@ class ListingsController < ApplicationController
     @listing.amenities = params.fetch("amenities")
     @listing.description = params.fetch("description")
     @listing.monthly_price = params.fetch("monthly_price")
-    @listing.sublessor_id = params.fetch("sublessor_id")
+    @listing.sublessor_id = current_user.id
     @listing.available_from = params.fetch("available_from")
     @listing.available_till = params.fetch("available_till")
     @listing.zip_code = params.fetch("zip_code")
