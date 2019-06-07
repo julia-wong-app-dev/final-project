@@ -1,5 +1,5 @@
 <h1>
-  User #<%= @user.id %> details
+  User #<%= current_user.id %> details
 </h1>
 
 <div>
@@ -10,13 +10,13 @@
   </div>
 
   <div>
-    <a href="/existing_user_form/<%= @user.id %>">
+    <a href="/existing_user_form/<%= current_user.id %>">
       Edit profile
     </a>
   </div>
 
   <div>
-    <a href="/delete_user/<%= @user.id %>">
+    <a href="/delete_user/<%= current_user.id %>">
       Delete profile
     </a>
   </div>
