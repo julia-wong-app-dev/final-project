@@ -118,6 +118,8 @@ GEM
     bindex (0.7.0)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.8.0.1)
+      railties (>= 3.0)
     builder (3.2.3)
     byebug (11.0.1)
     callsite (0.0.11)
@@ -417,6 +419,7 @@ DEPENDENCIES
   awesome_print
   better_errors
   binding_of_caller
+  bootstrap-datepicker-rails
   byebug
   capybara
   carrierwave

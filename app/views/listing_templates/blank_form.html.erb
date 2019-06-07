@@ -7,133 +7,217 @@
 <%= render("listing_templates/validation_failures.html.erb") %>
 
 <form action="/insert_listing_record" method="post">
-  <div>
-    <label for="housing_type">
-      Housing type
-    </label>
 
-    <input type="text" id="housing_type" name="housing_type" value="<%= @listing.housing_type %>">
+<!------------------- Capacity ------------------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5>
+        Capacity
+      </h5>
+    </div>
   </div>
+</div>
 
-  <div>
-    <label for="city">
-      City
-    </label>
+<div class="container">
+  <div class="row">
 
-    <input type="text" id="city" name="city" value="<%= @listing.city %>">
+    <div class="col-4">
+      <label for="number_of_guests">
+        # of guests
+      </label>
+  
+      <input type="text" id="number_of_guests" name="number_of_guests" value="<%= @listing.number_of_guests %>" placeholder="E.g., 2">
+    </div>
+    
+    <div class="col-4">
+       <label for="number_of_bedrooms">
+        # of bedrooms
+      </label>
+  
+      <input type="text" id="number_of_bedrooms" name="number_of_bedrooms" value="<%= @listing.number_of_bedrooms %>" placeholder="E.g., 1">
+    </div>
+    
+    <div class="col-4">
+      <label for="number_of_bathrooms">
+        # of bathrooms
+      </label>
+  
+      <input type="text" id="number_of_bathrooms" name="number_of_bathrooms" value="<%= @listing.number_of_bathrooms %>" placeholder="E.g., 1">
+    </div>
   </div>
+</div>
 
-  <div>
-    <label for="neighborhood">
-      Neighborhood
-    </label>
+<br>
 
-    <input type="text" id="neighborhood" name="neighborhood" value="<%= @listing.neighborhood %>">
+<!------------------- Details ------------------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5>
+        Details
+      </h5>
+    </div>
   </div>
+</div>
 
-  <div>
-    <label for="number_of_guests">
-      Number of guests
-    </label>
+<div class="container">
+  <div class="row">
+    
+    <div class="col-4">
 
-    <input type="text" id="number_of_guests" name="number_of_guests" value="<%= @listing.number_of_guests %>">
+      <label for="housing_type">
+        Housing type
+      </label>
+      
+      <!-- <input type="text" id="housing_type" name="housing_type" value="<!%= @listing.housing_type %>" placeholder="Select housing type">  -->
+      
+      <div>
+        <select class="form-control" id="housing_type" value="<!%= @listing.housing_type %>">
+          <option selected>Select from menu</option>
+          <option value="1">Entire place</option>
+          <option value="2">Private room</option>
+          <option value="3">Shared room</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="col-4">
+      <label for="amenities">
+        Amenities
+      </label>
+  
+      <input type="text" id="amenities" name="amenities" value="<%= @listing.amenities %>" placeholder="E.g., dishwasher, etc.">
+    </div>
+
+    <div class="col-4">
+      <label for="description">
+        Description
+      </label>
+  
+      <input type="text" id="description" name="description" value="<%= @listing.description %>" placeholder="E.g., urban escape with patio">
+    </div>
   </div>
+</div>
 
-  <div>
-    <label for="number_of_bedrooms">
-      Number of bedrooms
-    </label>
+<br>
 
-    <input type="text" id="number_of_bedrooms" name="number_of_bedrooms" value="<%= @listing.number_of_bedrooms %>">
+<!------------------- Location ------------------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5>
+        Location
+      </h5>
+    </div>
   </div>
+</div>
 
-  <div>
-    <label for="number_of_bathrooms">
-      Number of bathrooms
-    </label>
-
-    <input type="text" id="number_of_bathrooms" name="number_of_bathrooms" value="<%= @listing.number_of_bathrooms %>">
+<div class="container">
+  <div class="row">
+    
+    <div class="col-4">
+      <label for="city">
+        City
+      </label>
+  
+      <input type="text" id="city" name="city" value="<%= @listing.city %>" placeholder="e.g., Chicago">
+    </div>
+  
+    <div class="col-4">
+      <label for="neighborhood">
+        Neighborhood
+      </label>
+  
+      <input type="text" id="neighborhood" name="neighborhood" value="<%= @listing.neighborhood %>" placeholder="e.g., Downtown/Loop">
+    </div>
   </div>
-
-  <div>
-    <label for="state">
-      State
-    </label>
-
-    <input type="text" id="state" name="state" value="<%= @listing.state %>">
+</div>
+  
+<div class="container">
+  <div class="row">
+    
+    <div class="col-4">
+      <label for="state">
+        State
+      </label>
+  
+      <input type="text" id="state" name="state" value="<%= @listing.state %>" placeholder="e.g., Illinois">
+    </div>
+  
+    <div class="col-4">
+      <label for="zip_code">
+        Zip code
+      </label>
+  
+      <input type="text" id="zip_code" name="zip_code" value="<%= @listing.zip_code %>" placeholder="e.g., 60601">
+    </div>
+    
+    <div class="col-4">
+      <label for="country">
+        Country
+      </label>
+  
+      <input type="text" id="country" name="country" value="<%= @listing.country %>" placeholder="e.g., USA">
+    </div>
   </div>
+</div>
 
-  <div>
-    <label for="country">
-      Country
-    </label>
+<br>
 
-    <input type="text" id="country" name="country" value="<%= @listing.country %>">
+<!------------------- Pricing & Availability ------------------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5>
+        Pricing & Availability
+      </h5>
+    </div>
   </div>
+</div>
 
-  <div>
-    <label for="amenities">
-      Amenities
-    </label>
-
-    <input type="text" id="amenities" name="amenities" value="<%= @listing.amenities %>">
+<div class="container">
+  <div class="row">
+    
+    <div class="col-4">
+      <label for="monthly_price">
+        Monthly pricing
+      </label>
+      <input type="text" id="monthly_price" name="monthly_price" value="<%= @listing.monthly_price %>" placeholder="E.g., $1,700">
+    </div>
+    
+    <div class="col-4">
+      <label for="available_from">
+        Available from
+      </label>
+      <input type="text" id="available_from" name="available_from" value="<%= @listing.available_from %>">
+    </div>
+    
+    <div class="col-4">
+      <label for="available_till">
+        Available till
+      </label>
+      <input type="text" id="available_till" name="available_till" value="<%= @listing.available_till %>">
+    </div>
   </div>
+</div>  
 
-  <div>
-    <label for="description">
-      Description
-    </label>
+<br>
 
-    <input type="text" id="description" name="description" value="<%= @listing.description %>">
-  </div>
-
-  <div>
-    <label for="monthly_price">
-      Monthly price
-    </label>
-
-    <input type="text" id="monthly_price" name="monthly_price" value="<%= @listing.monthly_price %>">
-  </div>
-
-  <div>
-    <label for="sublessor_id">
-      Sublessor
-    </label>
-
-    <input type="text" id="sublessor_id" name="sublessor_id" value="<%= @listing.sublessor_id %>">
-  </div>
-
-  <div>
-    <label for="available_from">
-      Available from
-    </label>
-
-    <input type="text" id="available_from" name="available_from" value="<%= @listing.available_from %>">
-  </div>
-
-  <div>
-    <label for="available_till">
-      Available till
-    </label>
-
-    <input type="text" id="available_till" name="available_till" value="<%= @listing.available_till %>">
-  </div>
-
-  <div>
-    <label for="zip_code">
-      Zip code
-    </label>
-
-    <input type="text" id="zip_code" name="zip_code" value="<%= @listing.zip_code %>">
-  </div>
+<!------------------- Create Listing & Go Back ------------------->
 
   <button>
     Create listing
   </button>
 </form>
+</hr>
 
 <hr>
-
-<a href="/listings">
-  Go back
-</a>
+  <a href="/listings">
+    Go back
+  </a>
+</hr>
