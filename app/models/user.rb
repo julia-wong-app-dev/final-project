@@ -39,12 +39,12 @@ class User < ApplicationRecord
   has_many :potential_sublessors, :through => :bookmarked_listings, :source => :sublessor
   has_many :potential_sublessees, :through => :listings, :source => :interested_sublessees
   
-  def bookmarked_listings
-    @user = User.where({ :id => params.fetch("id") }).at(0)
+#  def bookmarked_listings
+#    @user = User.where({ :id => params.fetch("id") }).at(0)
 
-    @listings = @user.bookmarked_listings.order({ :created_at => :desc })
+#    @listings = @user.bookmarked_listings.order({ :created_at => :desc })
 
-    render("user_templates/bookmarked.html.erb")
-  end
+#    render("user_templates/bookmarked.html.erb")
+#  end
   
 end

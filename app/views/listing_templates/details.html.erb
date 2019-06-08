@@ -2,39 +2,67 @@
   Listing #<%= @listing.id %> details
 </h1>
 
+<!------------------- ONLY NOT sublessor can bookmark listing ------------------->
+  
+  <dt>Bookmark this listing</dt>
+  <dd>
+    <form action="/insert_bookmark_record">
+      <input type="hidden" value="<%= @listing.id %>" name="listing_id">
+
+      <label for="interested_sublessees_dropdown">Person</label>
+      
+      <select id="interested_sublessees_dropdown" name="interested_sublessee_id" >
+        <% User.all.order({ :first_name => :asc }).each do |a_user| %>
+          <option value="<%= a_user.id %>">
+            <%= a_user.first_name + " " + a_user.last_name %>
+          </option>
+        <% end %>
+      </select>
+
+      <button>Bookmark this listing</button>
+    </form>
+  </dd>
+
+<!------------------- Return to recent listings ------------------->
+
 <div>
-  <div>
-    <a href="/listings">
-      Go back
-    </a>
-  </div>
-
-  <div>
-    <a href="/existing_listing_form/<%= @listing.id %>">
-      Edit listing
-    </a>
-  </div>
-
-  <div>
-    <a href="/delete_listing/<%= @listing.id %>">
-      Delete listing
-    </a>
-  </div>
+  <a href="/listings">
+    Go back
+  </a>
 </div>
+
+<!------------------- ONLY sublessor can edit or delete listing ------------------->
+  
+<% if current_user == @listing.sublessor %>
+  <dd>
+    <nav>
+      <div>
+        <a href="/existing_listing_form/<%= @listing.id %>">
+          Edit listing
+        </a>
+      </div>
+
+
+      <div>
+        <a href="/delete_listing/<%= @listing.id %>">
+          Delete listing
+        </a>
+      </div>
+    </nav>
+  </dd>
+<% end %>
 
 <br>
 
-<!------------------- Sublessor & Listing History ------------------->
+<!------------------- Contact Details ------------------->
 
-<h5>Sublessor & Listing History</h5>
+<h5>Contact Details</h5>
 
 <table class="table">
   <thead>
     <tr>
       <th scope="col">Sublessor</th>
-      <th scope="col">Times Bookmarked</th>
-      <th scope="col">Listing Created At</th>
-      <th scope="col">Listing Updated At</th>
+      <th scope="col">Sublessor Email</th>
     </tr>
   </thead>
   <tbody>
@@ -46,6 +74,30 @@
       </td>
     
       <td>
+        <%= @listing.sublessor.email %>
+      </td>
+      
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<!------------------- Listing History ------------------->
+
+<h5>Listing History</h5>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Times Bookmarked</th>
+      <th scope="col">Listing Created At</th>
+      <th scope="col">Listing Updated At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
         <%= @listing.bookmarks.count %>
       </td>
       
@@ -55,6 +107,48 @@
     
       <td>
         <%= time_ago_in_words(@listing.updated_at) %> ago
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<!------------------- Location ------------------->
+
+<h5>Location</h5>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">City</th>
+      <th scope="col">Neighborhood</th>
+      <th scope="col">State</th>
+      <th scope="col">Zip Code</th>
+      <th scope="col">Country</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>
+        <%= @listing.city %>
+      </td>
+    
+      <td>
+        <%= @listing.neighborhood %>
+      </td>
+    
+      <td>
+        <%= @listing.state %>
+      </td>
+      
+      <td>
+        <%= @listing.zip_code %>
+      </td>
+    
+      <td>
+        <%= @listing.country %>
       </td>
     </tr>
   </tbody>
@@ -124,48 +218,6 @@
     </tr>
   </tbody>
 
-</table>
-
-<br>
-
-<!------------------- Location ------------------->
-
-<h5>Location</h5>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">City</th>
-      <th scope="col">Neighborhood</th>
-      <th scope="col">State</th>
-      <th scope="col">Zip Code</th>
-      <th scope="col">Country</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td>
-        <%= @listing.city %>
-      </td>
-    
-      <td>
-        <%= @listing.neighborhood %>
-      </td>
-    
-      <td>
-        <%= @listing.state %>
-      </td>
-      
-      <td>
-        <%= @listing.zip_code %>
-      </td>
-    
-      <td>
-        <%= @listing.country %>
-      </td>
-    </tr>
-  </tbody>
 </table>
 
 <br>

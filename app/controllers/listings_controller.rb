@@ -90,9 +90,10 @@ class ListingsController < ApplicationController
     redirect_to("/listings", { :notice => "Listing deleted successfully." })
   end
   
-  def most_bookmarked
-    @listing = Listing.listings_with_bookmarks.limit(25).first
-    render("listing_templates/popular.html.erb")
-  end  
+#  def most_bookmarked
+#    @bookmarked_listings = Listing.bookmarks_of_listings.count.all.order({ :count => :desc })
+
+#    render("listing_templates/popular.html.erb")
+#  end  
     
 end

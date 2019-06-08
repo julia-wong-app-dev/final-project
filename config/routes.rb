@@ -25,12 +25,11 @@ Rails.application.routes.draw do
 
   # CREATE
   match("/new_bookmark_form", { :controller => "bookmarks", :action => "blank_form", :via => "get" })
-  match("/insert_bookmark_record", { :controller => "bookmarks", :action => "save_new_info", :via => "post" })
+  match("/insert_bookmark_record", { :controller => "bookmarks", :action => "save_new_info", :via => "get" })
 
   # READ
   match("/bookmarks", { :controller => "bookmarks", :action => "list", :via => "get" })
   match("/bookmarks/:id_to_display", { :controller => "bookmarks", :action => "details", :via => "get" })
-  match("/users/:id/bookmarks", { :controller => "users", :action => "bookmarked", :via => "get" })
 
   # UPDATE
   match("/existing_bookmark_form/:id_to_prefill", { :controller => "bookmarks", :action => "prefilled_form", :via => "get" })

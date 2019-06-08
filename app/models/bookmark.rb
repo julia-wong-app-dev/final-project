@@ -15,4 +15,9 @@ class Bookmark < ApplicationRecord
     
     belongs_to :sublessee, :class_name => "User"
     belongs_to :listing
+    
+    def listings_with_bookmarks
+        return Listings.where(:listing_id => self.listing_id)
+    end
+    
 end

@@ -26,7 +26,7 @@ class BookmarksController < ApplicationController
     if @bookmark.valid?
       @bookmark.save
 
-      redirect_to("/bookmarks", { :notice => "Bookmark created successfully." })
+      redirect_to("/listings/" + @bookmark.listing_id.to_s, { :notice => "Bookmark created successfully." })
     else
       render("bookmark_templates/blank_form.html.erb")
     end
@@ -60,4 +60,5 @@ class BookmarksController < ApplicationController
 
     redirect_to("/bookmarks", { :notice => "Bookmark deleted successfully." })
   end
+  
 end

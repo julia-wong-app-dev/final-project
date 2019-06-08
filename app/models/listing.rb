@@ -45,16 +45,8 @@ class Listing < ApplicationRecord
 
     has_many :interested_sublessees, :through => :bookmarks, :source => :sublessee
     
-    def bookmarks
+    def bookmarks_of_listings
         return Bookmark.where(:listing_id => self.id)
-    end
-    
-    def Listing.listings_with_bookmarks
-#        @bookmark_count = Bookmark.listing_id.count.order(:count => :desc)
-
-        @bookmark_count = Bookmark.all(:group  => "listing_id", :select => "listing_id, COUNT(*) as count")
-        @bookmarked = bookmark_count.where(:listing_id => self.id)
-        return Listing.where(:id => @bookmarked)
     end
     
 end
