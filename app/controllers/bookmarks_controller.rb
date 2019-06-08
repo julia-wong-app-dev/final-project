@@ -20,7 +20,7 @@ class BookmarksController < ApplicationController
   def save_new_info
     @bookmark = Bookmark.new
 
-    @bookmark.sublessee_id = params.fetch("sublessee_id")
+    @bookmark.sublessee_id = current_user.id
     @bookmark.listing_id = params.fetch("listing_id")
 
     if @bookmark.valid?
@@ -30,6 +30,7 @@ class BookmarksController < ApplicationController
     else
       render("bookmark_templates/blank_form.html.erb")
     end
+    
   end
 
   def prefilled_form
