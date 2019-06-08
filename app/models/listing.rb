@@ -24,6 +24,20 @@
 
 class Listing < ApplicationRecord
     validates :sublessor_id, :presence => true
+    validates :housing_type, :presence => true
+    validates :city, :presence => true
+    validates :neighborhood, :presence => true
+    validates :number_of_guests, :presence => true
+    validates :number_of_bedrooms, :presence => true
+    validates :number_of_bathrooms, :presence => true
+    validates :state, :presence => true
+    validates :country, :presence => true
+    validates :amenities, :presence => true
+    validates :description, :presence => true
+    validates :sublessor_id, :presence => true
+    validates :available_from, :presence => true
+    validates :available_till, :presence => true
+    validates :zip_code, :presence => true
     
     belongs_to :sublessor, :class_name => "User"
     has_many :photos, :dependent => :destroy
@@ -33,6 +47,14 @@ class Listing < ApplicationRecord
     
     def bookmarks
         return Bookmark.where(:listing_id => self.id)
+    end
+    
+    def Listing.listings_with_bookmarks
+#        @bookmark_count = Bookmark.listing_id.count.order(:count => :desc)
+
+        @bookmark_count = Bookmark.all(:group  => "listing_id", :select => "listing_id, COUNT(*) as count")
+        @bookmarked = bookmark_count.where(:listing_id => self.id)
+        return Listing.where(:id => @bookmarked)
     end
     
 end

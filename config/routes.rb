@@ -69,7 +69,7 @@ Rails.application.routes.draw do
   match("/users/:id_to_display", { :controller => "users", :action => "details", :via => "get" })
   
   # UPDATE
-  
+
   # DELETE
   
   #------------------------------

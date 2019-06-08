@@ -115,11 +115,11 @@
       </td>
     
       <td>
-        <%= @listing.available_from %>
+        <%= @listing.available_from.strftime("%F") %>
       </td>
     
       <td>
-        <%= @listing.available_till %>
+        <%= @listing.available_till.strftime("%F") %>
       </td>
     </tr>
   </tbody>
