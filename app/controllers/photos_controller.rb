@@ -17,12 +17,15 @@ class PhotosController < ApplicationController
     render("photo_templates/blank_form.html.erb")
   end
 
+
   def save_new_info
     @photo = Photo.new
 
     @photo.photo_caption = params.fetch("photo_caption")
     @photo.listing_id = params.fetch("listing_id")
     @photo.url = params.fetch("url")
+  # @photo.url = params.fetch(:url)
+    @photo.
 
     if @photo.valid?
       @photo.save
@@ -62,4 +65,7 @@ class PhotosController < ApplicationController
 
     redirect_to("/photos", { :notice => "Photo deleted successfully." })
   end
+  
+  
+
 end

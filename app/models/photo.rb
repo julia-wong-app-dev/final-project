@@ -14,4 +14,8 @@ class Photo < ApplicationRecord
     validates :listing_id, :presence => true
     
     belongs_to :listing
+    
+    # Addition for Image Upload
+#    mount_uploader :url, url_uploader
+    
 end

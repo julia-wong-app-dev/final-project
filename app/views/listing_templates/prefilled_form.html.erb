@@ -7,103 +7,8 @@
 <%= render("listing_templates/validation_failures.html.erb") %>
 
 <form action="/update_listing_record/<%= @listing.id %>" method="post">
-
-<!------------------- Capacity ------------------->
-
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h5>
-        Capacity
-      </h5>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-
-    <div class="col-4">
-      <label for="number_of_guests">
-        # of guests
-      </label>
   
-      <input type="text" id="number_of_guests" name="number_of_guests" value="<%= @listing.number_of_guests %>" placeholder="E.g., 2">
-    </div>
-    
-    <div class="col-4">
-       <label for="number_of_bedrooms">
-        # of bedrooms
-      </label>
-  
-      <input type="text" id="number_of_bedrooms" name="number_of_bedrooms" value="<%= @listing.number_of_bedrooms %>" placeholder="E.g., 1">
-    </div>
-    
-    <div class="col-4">
-      <label for="number_of_bathrooms">
-        # of bathrooms
-      </label>
-  
-      <input type="text" id="number_of_bathrooms" name="number_of_bathrooms" value="<%= @listing.number_of_bathrooms %>" placeholder="E.g., 1">
-    </div>
-  </div>
-</div>
-
-<br>
-
-<!------------------- Details ------------------->
-
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h5>
-        Details
-      </h5>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    
-    <div class="col-4">
-
-      <label for="housing_type">
-        Housing type
-      </label>
-      
-      <!--<input type="text" class="form-control" id="housing_type" name="housing_type" placeholder="Select housing type"> -->
-      
-      <select class="form-control" id="housing_type" name="housing_type">
-        <option selected disabled>Select from menu</option>
-        <option value="Entire place">Entire place</option>
-        <option value="Private room">Private room</option>
-        <option value="Shared room">Shared room</option>
-      </select>
-      
-    </div>
-    
-    <div class="col-4">
-      <label for="amenities">
-        Amenities
-      </label>
-  
-      <input type="text" id="amenities" name="amenities" value="<%= @listing.amenities %>" placeholder="E.g., dishwasher, etc.">
-    </div>
-
-    <div class="col-4">
-      <label for="description">
-        Description
-      </label>
-  
-      <input type="text" id="description" name="description" value="<%= @listing.description %>" placeholder="E.g., urban escape with patio">
-    </div>
-  </div>
-</div>
-
-<br>
-
-<!------------------- Location ------------------->
+  <!------------------- Location ------------------->
 
 <div class="container">
   <div class="row">
@@ -167,6 +72,49 @@
 
 <br>
 
+<!------------------- Capacity ------------------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5>
+        Capacity
+      </h5>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-4">
+      <label for="number_of_guests">
+        # of guests
+      </label>
+  
+      <input type="text" id="number_of_guests" name="number_of_guests" value="<%= @listing.number_of_guests %>" placeholder="E.g., 2">
+    </div>
+    
+    <div class="col-4">
+       <label for="number_of_bedrooms">
+        # of bedrooms
+      </label>
+  
+      <input type="text" id="number_of_bedrooms" name="number_of_bedrooms" value="<%= @listing.number_of_bedrooms %>" placeholder="E.g., 1">
+    </div>
+    
+    <div class="col-4">
+      <label for="number_of_bathrooms">
+        # of bathrooms
+      </label>
+  
+      <input type="text" id="number_of_bathrooms" name="number_of_bathrooms" value="<%= @listing.number_of_bathrooms %>" placeholder="E.g., 1">
+    </div>
+  </div>
+</div>
+
+<br>
+
 <!------------------- Pricing & Availability ------------------->
 
 <div class="container">
@@ -207,12 +155,107 @@
 
 <br>
 
-<!--<div class="input-append date" id="datepicker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
-    <input class="span2" size="16" type="text" value="12-02-2012">
-    <span class="add-on"><i class="icon-th"></i></span>
+<!------------------- Details ------------------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5>
+        Details
+      </h5>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-4">
+
+      <label for="housing_type">
+        Housing type
+      </label>
+      
+      <!--<input type="text" class="form-control" id="housing_type" name="housing_type" placeholder="Select housing type"> -->
+      
+      <select class="form-control" id="housing_type" name="housing_type">
+        <option selected disabled>Select from menu</option>
+        <option value="Entire place">Entire place</option>
+        <option value="Private room">Private room</option>
+        <option value="Shared room">Shared room</option>
+      </select>
+      
+    </div>
+    
+    <div class="col-4">
+      <label for="amenities">
+        Amenities
+      </label>
+  
+      <input type="text" id="amenities" name="amenities" value="<%= @listing.amenities %>" placeholder="E.g., dishwasher, etc.">
+    </div>
+
+    <div class="col-4">
+      <label for="description">
+        Description
+      </label>
+  
+      <input type="text" id="description" name="description" value="<%= @listing.description %>" placeholder="E.g., urban escape with patio">
+    </div>
+  </div>
 </div>
 
 <br>
+
+<!------------------- Photos -------------------->
+
+<h5>Photos</h5>
+
+<form action="/insert_photo_record" enctype="multipart/form-data">
+  <div>
+    <input type="hidden" value="<%= current_user.id %>" name="user_id">
+  </div>
+
+  <div class="form-group">
+    <label for="url">Select photo</label>
+    <input type="file" class="form-control-file" id="url">
+  </div>
+
+  <div>
+    <p></p>
+  </div>  
+  
+  <div class="form-group">
+    <label for="comment">Photo Caption</label>
+    <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="e.g., bathroom"></textarea>
+  </div>
+
+</form>
+
+<dd>
+    <% new_bookmark = Bookmark.where({ :listing_id => @listing.id, :sublessee_id => current_user.id }).at(0) %>
+
+    <% if new_bookmark == nil  %>
+      <form action="/insert_bookmark_record">
+        <input type="hidden" value="<%= @listing.id %>" name="listing_id">
+  
+        <button>Bookmark this listing</button>
+      </form>
+    
+    <% else %>
+      <a href="/delete_bookmark/<%= new_bookmark.id %>">
+        Delete bookmark
+      </a>
+    <% end %>
+  </dd>
+
+
+
+
+
+
+<br>
+
 
 <!------------------- Update Listing & Go Back ------------------->
 

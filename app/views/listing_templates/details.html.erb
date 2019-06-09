@@ -2,11 +2,29 @@
   Listing #<%= @listing.id %> details
 </h1>
 
+<!------------------- Return to recent listings ------------------->
+
+<div>
+  <a href="/listings">
+    Go back
+  </a>
+</div>
+
+<br>
+
 <!------------------- ONLY NOT sublessor can bookmark listing ------------------->
+
+<!-----Delete below this later ----->  
+  <dt>Interested Sublessees</dt>
   
   <dd>
     <%= @listing.interested_sublessees.pluck(:first_name).to_sentence %>
-    
+  </dd>
+<!-----Delete above this later -----> 
+
+<% if current_user != @listing.sublessor %>
+
+  <dd>
     <% new_bookmark = Bookmark.where({ :listing_id => @listing.id, :sublessee_id => current_user.id }).at(0) %>
 
     <% if new_bookmark == nil  %>
@@ -17,19 +35,13 @@
       </form>
     
     <% else %>
-      <a href="/delete_like/<%= new_bookmark.id %>">
-        Unbookmark this listing
+      <a href="/delete_bookmark/<%= new_bookmark.id %>">
+        Delete bookmark
       </a>
     <% end %>
   </dd>
-
-<!------------------- Return to recent listings ------------------->
-
-<div>
-  <a href="/listings">
-    Go back
-  </a>
-</div>
+  
+<% end %>
 
 <!------------------- ONLY sublessor can edit or delete listing ------------------->
   
@@ -253,5 +265,31 @@
 
 </table>
 
-</dl>
+<!------------------- Photos ------------------->
 
+<h5>Photos</h5>
+
+<!--
+
+<form action="/insert_photo_record" enctype="multipart/form-data">
+  <div>
+    <input type="hidden" value="<!%= current_user.id %>" name="user_id">
+  </div>
+
+  <div class="form-group">
+    <label for="picture">Select photo</label>
+    <input type="file" class="form-control-file" id="picture">
+  </div>
+
+  <div>
+    <p></p>
+  </div>  
+  
+  <div class="form-group">
+    <label for="comment">Photo Caption</label>
+    <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="e.g., bathroom"></textarea>
+  </div>
+
+</form>
+
+-->

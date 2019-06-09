@@ -59,7 +59,7 @@ class BookmarksController < ApplicationController
 
     @bookmark.destroy
 
-    redirect_to("/bookmarks", { :notice => "Bookmark deleted successfully." })
+    redirect_to("/listings/" + @bookmark.listing.id.to_s, { :notice => "Bookmark deleted successfully." })
   end
   
 end
