@@ -23,8 +23,11 @@ gem "ransack"
 gem "carrierwave"
 gem "cloudinary"
 
-# Additions for Date Picker
-gem 'bootstrap-datepicker-rails' 
+# Additions for Datepicker
+gem 'bootstrap-datepicker-rails'
+
+# Additions for Search
+gem 'ransack' 
 
 group :production do
   gem "pg"

@@ -7,7 +7,7 @@
 #  city                :string
 #  neighborhood        :string
 #  number_of_guests    :integer
-#  number_of_bedrooms  :integer
+#  number_of_bedrooms  :float
 #  number_of_bathrooms :float
 #  state               :string
 #  country             :string
@@ -20,6 +20,7 @@
 #  zip_code            :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  bookmark_count      :integer          default(0)
 #
 
 class Listing < ApplicationRecord
@@ -45,8 +46,17 @@ class Listing < ApplicationRecord
 
     has_many :interested_sublessees, :through => :bookmarks, :source => :sublessee
     
-    def bookmarks_of_listings
-        return Bookmark.where(:listing_id => self.id)
+    def Listing.by_popularity
+        # return Bookmark.where(:listing_id => self.id)
+        listings = Listing.all
+        popularity_hash = {}
+        
+        listings.each do |listing|
+           popularity_hash[listing] = Bookmark.where({:listing_id => listing.id}).count 
+        end
+        
+        # @users = User.includes(:user_extension).order("user_extensions.company desc")
+        # "count(jobs.company_id) desc"
     end
     
 end

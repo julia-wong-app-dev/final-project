@@ -22,16 +22,17 @@
   </div>
 </div>
 
-<h2>Own Listings</h2>
+<!--------------------User's Listings-------------------->
+
+<h2><%= current_user.first_name %>'s Listings</h2>
 
 <table>
   <tr>
-    <th>Housing type</th>
-    <th># of guests</th>
-    <th># of bedrooms</th>
     <th>City</th>
     <th>State</th>
     <th>Monthly price</th>
+    <th># of bedrooms</th>
+    <th># of bathrooms</th>
     <th>Times bookmarked</th>
     <th>Created at</th>
     <th></th>
@@ -39,18 +40,7 @@
 
   <% @listings.each do |listing| %>
   <tr>
-    <td>
-      <%= listing.housing_type %>
-    </td>
-
-    <td>
-      <%= listing.number_of_guests %>
-    </td>
-
-    <td>
-      <%= listing.number_of_bedrooms %>
-    </td>
-
+    
     <td>
       <%= listing.city %>
     </td>
@@ -64,6 +54,14 @@
     </td>
     
     <td>
+      <%= listing.number_of_bedrooms %>
+    </td>
+
+    <td>
+      <%= listing.number_of_bathrooms %>
+    </td>
+    
+    <td>
        <%= pluralize(listing.bookmarks.count, "bookmarks") %>
     </td>
     
@@ -73,6 +71,95 @@
 
     <td>
       <a href="/listings/<%= listing.id %>">
+        Show details
+      </a>
+   
+
+<!------------------- ONLY sublessor can edit or delete listing ------------------->
+<!--  
+    <!% if current_user == @listing.sublessor %>
+    
+      <a href="/existing_listing_form/<!%= @listing.id %>">
+        Edit listing
+      </a>
+
+      <a href="/delete_listing/<!%= @listing.id %>">
+        Delete listing
+      </a>
+  
+    <!% end %>
+-->
+    </td>
+    
+  <% end %>
+  </tr>
+</table>
+
+<br>
+
+<!--------------------User's Bookmarks-------------------->
+
+<h2><%= current_user.first_name %>'s Bookmarks</h2>
+
+<table>
+  <tr>
+    <th>City</th>
+    <th>State</th>
+    <th>Monthly price</th>
+    <th># of bedrooms</th>
+    <th># of bathrooms</th>
+    <th>Available from</th>
+    <th>Available till</th>
+    <th>Times bookmarked</th>
+    <th>Sublessor</th>
+    <th>Sublessor Email</th>
+    <th></th>
+  </tr>
+
+  <% @my_bookmarked_listings.each do |b_listing| %>
+  <tr>
+     <td>
+      <%= b_listing.city %>
+    </td>
+
+    <td>
+      <%= b_listing.state %>
+    </td>
+    
+    <td>
+      <%= b_listing.monthly_price %>
+    </td>
+    
+    <td>
+      <%= b_listing.number_of_bedrooms %>
+    </td>
+
+    <td>
+      <%= b_listing.number_of_bathrooms %>
+    </td>
+
+    <td>
+      <%= b_listing.available_from %>
+    </td>
+   
+    <td>
+      <%= b_listing.available_till %>
+    </td>
+    
+    <td>
+       <%= pluralize(b_listing.bookmarks.count, "bookmarks") %>
+    </td>
+    
+    <td>
+      <%= User.where({ :id => b_listing.sublessor_id }).pluck(:first_name) %>
+    </td>
+    
+    <td>
+      <%= User.where({ :id => b_listing.sublessor_id }).pluck(:email) %>
+    </td>
+
+    <td>
+      <a href="/listings/<%= b_listing.id %>">
         Show details
       </a>
     </td>

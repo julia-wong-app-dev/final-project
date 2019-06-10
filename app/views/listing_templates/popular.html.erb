@@ -10,23 +10,7 @@
       ID
     </th>
 
-    <th>
-      Housing type
-    </th>
-
-    <th>
-      # of guests
-    </th>
-
-    <th>
-      # of bedrooms
-    </th>
-
-    <th>
-      # of bathrooms
-    </th>
-
-    <th>
+   <th>
       City
     </th>
     
@@ -38,6 +22,14 @@
       Monthly price
     </th>
 
+    <th>
+      # of bedrooms
+    </th>
+
+    <th>
+      # of bathrooms
+    </th>
+    
     <th>
       Available from
     </th>
@@ -61,22 +53,6 @@
         </td>
         
         <td>
-          <%= listing.housing_type %>
-        </td>
-        
-        <td>
-          <%= listing.number_of_guests %>
-        </td>
-        
-        <td>
-          <%= listing.number_of_bedrooms %>
-        </td>
-        
-        <td>
-          <%= listing.number_of_bathrooms %>
-        </td>
-        
-        <td>
           <%= listing.city %>
         </td>
         
@@ -89,11 +65,19 @@
         </td>
         
         <td>
-          <%= listing.available_from %>
+          <%= listing.number_of_bedrooms %>
         </td>
         
         <td>
-          <%= listing.available_till %>
+          <%= listing.number_of_bathrooms %>
+        </td>
+        
+        <td>
+          <%= listing.available_from.strftime("%F") %>
+        </td>
+        
+        <td>
+          <%= listing.available_till.strftime("%F") %>
         </td>
         
         <td>

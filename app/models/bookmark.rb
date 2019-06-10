@@ -16,8 +16,17 @@ class Bookmark < ApplicationRecord
     belongs_to :sublessee, :class_name => "User"
     belongs_to :listing
     
+    after_save :update_listing_bookmark_count
+    after_destroy :update_listing_bookmark_count
+    
     def listings_with_bookmarks
         return Listings.where(:listing_id => self.listing_id)
+    end
+    
+    def update_listing_bookmark_count
+        listing = self.listing
+        listing.bookmark_count=listing.bookmarks.count
+        listing.save
     end
     
 end

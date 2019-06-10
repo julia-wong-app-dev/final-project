@@ -45,15 +45,17 @@
           Home
         </a>
       </div>
-      
-<!--      <div>
-        <a href="/users/<!%= current_user.id %>">
+    
+    <% if (current_user.present?)  %>
+      <div>
+        <a href="/users/<%= current_user.id %>">
           <i class="fas fa-heart"></i>
 
           My Bookmarks & Listings
         </a>
-      </div> -->
-
+      </div>
+    <% end %>
+    
       <div>
         <a href="/new_listing_form">
           <i class="fas fa-plus fa-fw"></i>
