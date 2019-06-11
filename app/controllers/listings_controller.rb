@@ -95,6 +95,9 @@ class ListingsController < ApplicationController
   
   def most_bookmarked
     @listings = Listing.all.order({ :bookmark_count => :desc })
+    
+    @search_listing = Listing.ransack(params[:q])
+    @found_listings = @search_listing.result
 
     render("listing_templates/popular.html.erb")
   end  
