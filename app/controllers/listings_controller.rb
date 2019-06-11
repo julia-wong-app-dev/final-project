@@ -36,7 +36,11 @@ class ListingsController < ApplicationController
     @listing.country = params.fetch("country")
     @listing.amenities = params.fetch("amenities")
     @listing.description = params.fetch("description")
-    @listing.monthly_price = params.fetch("monthly_price")
+    
+    @monthly_price_without_symbols = params.fetch("monthly_price").gsub(/[^0-9\s]/i, "")
+#    @listing.monthly_price = params.fetch("monthly_price")
+    @listing.monthly_price = @monthly_price_without_symbols
+     
     @listing.sublessor_id = current_user.id
     @listing.available_from = params.fetch("available_from")
     @listing.available_till = params.fetch("available_till")

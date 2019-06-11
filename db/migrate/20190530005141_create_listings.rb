@@ -11,7 +11,7 @@ class CreateListings < ActiveRecord::Migration[5.1]
       t.string :country
       t.string :amenities
       t.string :description
-      t.string :monthly_price
+      t.integer :monthly_price
       t.integer :sublessor_id
       t.datetime :available_from
       t.datetime :available_till

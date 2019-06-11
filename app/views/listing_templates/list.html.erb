@@ -44,7 +44,7 @@
        
       <div class="form-group col-4">
         <%= f.label :monthly_price_cont, "Monthly Price" %>
-        <%= f.text_field :monthly_price_cont, :class => "form-control", :placeholder => "Enter max monthly price" %>
+        <%= f.text_field :monthly_price_lteq, :class => "form-control", :placeholder => "Enter max monthly price" %>
       </div>
     
     </div>
@@ -147,7 +147,8 @@
     </td>
 
     <td>
-      <%= listing.monthly_price %>
+      <% monthly_price_without_symbols = listing.monthly_price.gsub(/[^0-9\s]/i, "") %>
+      <%= number_to_currency(monthly_price_without_symbols) %>
     </td>
 
     <td>
