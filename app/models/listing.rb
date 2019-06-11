@@ -46,17 +46,5 @@ class Listing < ApplicationRecord
 
     has_many :interested_sublessees, :through => :bookmarks, :source => :sublessee
     
-    def Listing.by_popularity
-        # return Bookmark.where(:listing_id => self.id)
-        listings = Listing.all
-        popularity_hash = {}
-        
-        listings.each do |listing|
-           popularity_hash[listing] = Bookmark.where({:listing_id => listing.id}).count 
-        end
-        
-        # @users = User.includes(:user_extension).order("user_extensions.company desc")
-        # "count(jobs.company_id) desc"
-    end
     
 end

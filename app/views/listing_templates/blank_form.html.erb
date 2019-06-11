@@ -1,6 +1,6 @@
-<h1>
-  Add a new listing
-</h1>
+<h3 class="text-info">
+  Add a New Listing
+</h3>
 
 <hr>
 
@@ -10,15 +10,26 @@
 
 <!------------------- Location ------------------->
 
+<!--Earlier Formatting
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h5>
+      <h5 class="text-info">
         Location
       </h5>
     </div>
   </div>
 </div>
+
+-->
+
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Location</th>
+    </tr>
+  </tbody>
+</table> 
 
 <div class="container">
   <div class="row">
@@ -74,15 +85,13 @@
 
 <!------------------- Capacity ------------------->
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h5>
-        Capacity
-      </h5>
-    </div>
-  </div>
-</div>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Capacity</th>
+    </tr>
+  </tbody>
+</table> 
 
 <div class="container">
   <div class="row">
@@ -117,15 +126,13 @@
 
 <!------------------- Pricing & Availability ------------------->
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h5>
-        Pricing & Availability
-      </h5>
-    </div>
-  </div>
-</div>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Pricing & Availability</th>
+    </tr>
+  </tbody>
+</table> 
 
 <div class="container">
   <div class="row">
@@ -158,15 +165,13 @@
 
 <!------------------- Details ------------------->
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h5>
-        Details
-      </h5>
-    </div>
-  </div>
-</div>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Details</th>
+    </tr>
+  </tbody>
+</table> 
 
 <div class="container">
   <div class="row">
@@ -207,12 +212,12 @@
 <br>
 
 <!------------------- Photos -------------------->
-
-<h5>Photos</h5>
+<!--
+<h5 class="text-info">Photos</h5>
 
 <form action="/insert_photo_record" enctype="multipart/form-data">
   <div>
-    <input type="hidden" value="<%= current_user.id %>" name="user_id">
+    <input type="hidden" value="<!%= current_user.id %>" name="user_id">
   </div>
 
   <div class="form-group">
@@ -231,6 +236,8 @@
 
 </form>
 
+-->
+
 <br>
 
 <!------------------- Create Listing & Go Back ------------------->
@@ -242,7 +249,9 @@
 </hr>
 
 <hr>
+
+<div>
   <a href="/listings">
-    Go back
+    <h6 class="text-info">Go back</h6>
   </a>
-</hr>
+</div>

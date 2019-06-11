@@ -1,12 +1,12 @@
-<h1>
-  Listing #<%= @listing.id %> details
-</h1>
+<h3 class="text-info">
+  Listing #<%= @listing.id %> Details
+</h3>
 
 <!------------------- Return to recent listings ------------------->
 
 <div>
   <a href="/listings">
-    Go back
+    <h6 class="text-info">Go back</h6>
   </a>
 </div>
 
@@ -14,13 +14,17 @@
 
 <!------------------- ONLY NOT sublessor can bookmark listing ------------------->
 
-<!-----Delete below this later ----->  
-  <dt>Interested Sublessees</dt>
+<!-----List of Interested Sublessees ----->
+
+<dt> 
+  <h6 class="text-info">Interested Sublessees</h6> 
+</dt>
   
-  <dd>
-    <%= @listing.interested_sublessees.pluck(:first_name).to_sentence %>
-  </dd>
-<!-----Delete above this later -----> 
+<dd>
+  <%= @listing.interested_sublessees.pluck(:first_name).to_sentence %>
+</dd>
+
+<!-----Buttons to Add or Remove Bookmark -----> 
 
 <% if current_user != @listing.sublessor %>
 
@@ -31,7 +35,8 @@
       <form action="/insert_bookmark_record">
         <input type="hidden" value="<%= @listing.id %>" name="listing_id">
   
-        <button>Bookmark this listing</button>
+        <button class="btn btn-info btn-sm">Bookmark this listing</button>
+        
       </form>
     
     <% else %>
@@ -68,7 +73,17 @@
 
 <!------------------- Contact Details ------------------->
 
+<!--Old formatting
 <h5>Contact Details</h5>
+-->
+
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Contact Details</th>
+    </tr>
+  </tbody>
+</table> 
 
 <table class="table">
   <thead>
@@ -97,7 +112,13 @@
 
 <!------------------- Listing History ------------------->
 
-<h5>Listing History</h5>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Listing History</th>
+    </tr>
+  </tbody>
+</table> 
 
 <table class="table">
   <thead>
@@ -128,7 +149,13 @@
 
 <!------------------- Location ------------------->
 
-<h5>Location</h5>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Location</th>
+    </tr>
+  </tbody>
+</table> 
 
 <table class="table">
   <thead>
@@ -170,7 +197,13 @@
 
 <!------------------- Capacity ------------------->
 
-<h5>Capacity</h5>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Capacity</th>
+    </tr>
+  </tbody>
+</table> 
 
 <table class="table">
   <thead>
@@ -203,7 +236,13 @@
 
 <!------------------- Pricing & Availability ------------------->
 
-<h5>Pricing & Availability</h5>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Pricing & Availability</th>
+    </tr>
+  </tbody>
+</table> 
 
 <table class="table">
   <thead>
@@ -236,7 +275,13 @@
 
 <!------------------- Details ------------------->
 
-<h5>Details</h5>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Details</th>
+    </tr>
+  </tbody>
+</table> 
 
 <table class="table">
   <thead>
@@ -267,9 +312,8 @@
 
 <!------------------- Photos ------------------->
 
-<h5>Photos</h5>
-
 <!--
+<h5>Photos</h5>
 
 <form action="/insert_photo_record" enctype="multipart/form-data">
   <div>

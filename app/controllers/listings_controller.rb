@@ -5,8 +5,8 @@ class ListingsController < ApplicationController
   def list
     @listings = Listing.all.order({ :created_at => :desc })
     
-    @search_listing = Listing.ransack(params[:search_listing])
-    @found_listing = @search_listing.result
+    @search_listing = Listing.ransack(params[:q])
+    @found_listings = @search_listing.result
     
     render("listing_templates/list.html.erb")
   end
@@ -98,10 +98,5 @@ class ListingsController < ApplicationController
 
     render("listing_templates/popular.html.erb")
   end  
-  
-  def my_bookmarks
-    @my_bookmarks = Bookmark.where({ :sublessee_id => current_user.id })
-    @my_bookmarked_listings = Listing.where({ :id => @my_bookmarks.listing_id})
-  end
     
 end

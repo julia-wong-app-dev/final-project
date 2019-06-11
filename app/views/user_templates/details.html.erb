@@ -1,30 +1,32 @@
-<h1>
-  User #<%= current_user.id %> details
-</h1>
+<h3 class="text-info">
+  <%= @user.first_name %>'s Listings & Bookmarks
+</h3>
 
-<div>
-  <div>
-    <a href="/users">
-      Go back
-    </a>
-  </div>
+<!--
+<h6>User #<!%= @user.id %> details</h6>
 
-  <div>
+  <div class="text-info">
     <a href="/users/edit">
-      Edit profile
+      <h6 class="text-info">Edit profile</h6>
     </a>
   </div>
+-->
 
-  <div>
-    <a href="/delete_user/<%= current_user.id %>">
-      Delete profile
-    </a>
-  </div>
-</div>
+<br>
 
 <!--------------------User's Listings-------------------->
 
-<h2><%= current_user.first_name %>'s Listings</h2>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold"><%= @user.first_name %>'s Listings</th>
+    </tr>
+  </tbody>
+</table> 
+
+<!--Old formatting
+<h5 class="text-info"><!%= current_user.first_name %>'s Listings</h5>
+-->
 
 <table>
   <tr>
@@ -33,8 +35,12 @@
     <th>Monthly price</th>
     <th># of bedrooms</th>
     <th># of bathrooms</th>
+    <th>Available from</th>
+    <th>Available till</th>
     <th>Times bookmarked</th>
     <th>Created at</th>
+    <th></th>
+    <th></th>
     <th></th>
   </tr>
 
@@ -62,6 +68,14 @@
     </td>
     
     <td>
+      <%= listing.available_from.strftime("%F") %>
+    </td>
+   
+    <td>
+      <%= listing.available_till.strftime("%F") %>
+    </td>
+    
+    <td>
        <%= pluralize(listing.bookmarks.count, "bookmarks") %>
     </td>
     
@@ -73,22 +87,26 @@
       <a href="/listings/<%= listing.id %>">
         Show details
       </a>
-   
+    </td>
 
 <!------------------- ONLY sublessor can edit or delete listing ------------------->
-<!--  
-    <!% if current_user == @listing.sublessor %>
-    
-      <a href="/existing_listing_form/<!%= @listing.id %>">
-        Edit listing
-      </a>
-
-      <a href="/delete_listing/<!%= @listing.id %>">
-        Delete listing
-      </a>
   
-    <!% end %>
--->
+    <% if current_user.id == @user.id %>
+ 
+    <td>
+      <a href="/existing_listing_form/<%= listing.id %>">
+        Edit
+      </a>
+    </td>
+    
+    <td>
+      <a href="/delete_listing/<%= listing.id %>">
+        Delete
+      </a>
+    </td>
+    
+    <% end %>
+
     </td>
     
   <% end %>
@@ -99,7 +117,17 @@
 
 <!--------------------User's Bookmarks-------------------->
 
-<h2><%= current_user.first_name %>'s Bookmarks</h2>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold"><%= @user.first_name %>'s Bookmarks</th>
+    </tr>
+  </tbody>
+</table> 
+
+<!--Earlier formatting--
+<h5 class="text-info"><!%= current_user.first_name %>'s Bookmarks</h5>
+-->
 
 <table>
   <tr>
@@ -114,9 +142,10 @@
     <th>Sublessor</th>
     <th>Sublessor Email</th>
     <th></th>
+    <th></th>
   </tr>
 
-  <% @my_bookmarked_listings.each do |b_listing| %>
+  <% @bookmarked_listings.each do |b_listing| %>
   <tr>
      <td>
       <%= b_listing.city %>
@@ -139,11 +168,11 @@
     </td>
 
     <td>
-      <%= b_listing.available_from %>
+      <%= b_listing.available_from.strftime("%F") %>
     </td>
    
     <td>
-      <%= b_listing.available_till %>
+      <%= b_listing.available_till.strftime("%F") %>
     </td>
     
     <td>
@@ -151,11 +180,11 @@
     </td>
     
     <td>
-      <%= User.where({ :id => b_listing.sublessor_id }).pluck(:first_name) %>
+      <%= User.where({ :id => b_listing.sublessor_id }).pluck(:first_name).flatten.join('') %>
     </td>
     
     <td>
-      <%= User.where({ :id => b_listing.sublessor_id }).pluck(:email) %>
+      <%= User.where({ :id => b_listing.sublessor_id }).pluck(:email).flatten.join('') %>
     </td>
 
     <td>
@@ -163,6 +192,25 @@
         Show details
       </a>
     </td>
+  
+  <% if current_user.id == @user.id %>  
+    <td>
+      <% current_bookmark = Bookmark.where({ :listing_id => b_listing.id, :sublessee_id => @user.id }).at(0) %>
+      <a href="/delete_bookmark/<%= current_bookmark.id %>">
+        Delete
+      </a>
+ 
+    </td> 
+  <% end %>
+  
   </tr>
   <% end %>
 </table>
+
+<hr>
+
+<div>
+  <a href="/listings">
+    <h6 class="text-info">Go back</h6>
+  </a>
+</div>

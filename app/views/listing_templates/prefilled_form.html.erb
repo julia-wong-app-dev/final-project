@@ -1,6 +1,6 @@
-<h1>
+<h3 class="text-info">
   Edit listing #<%= @listing.id %>
-</h1>
+</h3>
 
 <hr>
 
@@ -10,15 +10,13 @@
   
   <!------------------- Location ------------------->
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h5>
-        Location
-      </h5>
-    </div>
-  </div>
-</div>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Location</th>
+    </tr>
+  </tbody>
+</table> 
 
 <div class="container">
   <div class="row">
@@ -74,15 +72,13 @@
 
 <!------------------- Capacity ------------------->
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h5>
-        Capacity
-      </h5>
-    </div>
-  </div>
-</div>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Capacity</th>
+    </tr>
+  </tbody>
+</table> 
 
 <div class="container">
   <div class="row">
@@ -117,15 +113,13 @@
 
 <!------------------- Pricing & Availability ------------------->
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h5>
-        Pricing & Availability
-      </h5>
-    </div>
-  </div>
-</div>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Pricing & Availability</th>
+    </tr>
+  </tbody>
+</table> 
 
 <div class="container">
   <div class="row">
@@ -141,14 +135,14 @@
       <label for="available_from">
         Available from
       </label>
-      <input type="date" id="available_from" name="available_from" value="<%= @listing.available_from %>" placeholder="dd-mm-yyyy">
+      <input type="date" id="available_from" name="available_from" value="<%= @listing.available_from.strftime('%Y-%m-%d')%>">
     </div>
     
     <div class="col-4">
       <label for="available_till">
         Available till
       </label>
-      <input type="date" id="available_till" name="available_till" value="<%= @listing.available_till%>" placeholder="dd-mm-yyyy" >
+      <input type="date" id="available_till" name="available_till" value="<%= @listing.available_till.strftime('%Y-%m-%d')%>">
     </div>
   </div>
 </div>  
@@ -157,15 +151,13 @@
 
 <!------------------- Details ------------------->
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <h5>
-        Details
-      </h5>
-    </div>
-  </div>
-</div>
+<table class="table table-hover">
+  <tbody>
+    <tr class="table-info">
+      <th scope="row" class="text-info text-center font-weight-bold">Details</th>
+    </tr>
+  </tbody>
+</table> 
 
 <div class="container">
   <div class="row">
@@ -179,7 +171,7 @@
       <!--<input type="text" class="form-control" id="housing_type" name="housing_type" placeholder="Select housing type"> -->
       
       <select class="form-control" id="housing_type" name="housing_type">
-        <option selected disabled>Select from menu</option>
+        <option selected><%= @listing.housing_type %></option>
         <option value="Entire place">Entire place</option>
         <option value="Private room">Private room</option>
         <option value="Shared room">Shared room</option>
@@ -208,12 +200,12 @@
 <br>
 
 <!------------------- Photos -------------------->
-
+<!--
 <h5>Photos</h5>
 
 <form action="/insert_photo_record" enctype="multipart/form-data">
   <div>
-    <input type="hidden" value="<%= current_user.id %>" name="user_id">
+    <input type="hidden" value="<!%= current_user.id %>" name="user_id">
   </div>
 
   <div class="form-group">
@@ -232,35 +224,19 @@
 
 </form>
 
-<dd>
-    <% new_bookmark = Bookmark.where({ :listing_id => @listing.id, :sublessee_id => current_user.id }).at(0) %>
-
-    <% if new_bookmark == nil  %>
-      <form action="/insert_bookmark_record">
-        <input type="hidden" value="<%= @listing.id %>" name="listing_id">
-  
-        <button>Bookmark this listing</button>
-      </form>
-    
-    <% else %>
-      <a href="/delete_bookmark/<%= new_bookmark.id %>">
-        Delete bookmark
-      </a>
-    <% end %>
-  </dd>
 
 <br>
 
-
+-->
 <!------------------- Update Listing & Go Back ------------------->
 
-  <button>
+  <button class="btn btn-secondary btn-lg btn-block">
     Update listing
   </button>
 </form>
 
 <hr>
 
-<a href="/listings">
-  Go back
+<a href="/users/<%= current_user.id %>">
+  <h6 class="text-info">Go back</h6>
 </a>
