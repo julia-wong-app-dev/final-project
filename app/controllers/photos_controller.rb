@@ -65,7 +65,3 @@ class PhotosController < ApplicationController
 
     redirect_to("/photos", { :notice => "Photo deleted successfully." })
   end
-  
-  
-
-end
