@@ -1,8 +1,6 @@
 class ChangeListPriceFromStringToInteger < ActiveRecord::Migration[5.1]
   def up
-    alter table :listings
-    alter column :monthly_price
-    type integer using cast(number as integer)
+    change_column :listings, :monthly_price, 'integer USING CAST("monthly_price" AS integer)'
   end
   
   def down
