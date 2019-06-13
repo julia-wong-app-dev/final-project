@@ -19,15 +19,11 @@ gem "uglifier", ">= 1.3.0"
 # Additions for Search/Filter Form
 gem "ransack"
 
-# Additions for Image Upload
-gem "carrierwave"
-gem "cloudinary"
-
 # Additions for Datepicker
 gem 'bootstrap-datepicker-rails'
 
-# Additions for Search
-gem 'ransack' 
+# Additions per Heroku recommendation
+gem install bundler
 
 group :production do
   gem "pg"
