@@ -22,9 +22,6 @@ gem "ransack"
 # Additions for Datepicker
 gem 'bootstrap-datepicker-rails'
 
-# Additions per Heroku recommendation
-gem install bundler
-
 group :production do
   gem "pg"
   gem "rails_12factor"
