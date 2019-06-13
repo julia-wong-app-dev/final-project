@@ -34,17 +34,17 @@
       
       <div class="form-group col-4">
         <%= f.label :available_from_gteq, "Available From" %>
-        <%= f.date_field :available_from_gteq, :class => "form-control", :placeholder => "Enter available from date" %>
+        <%= f.datetime_field :available_from_gteq, :class => "form-control", :placeholder => "Enter available from date" %>
       </div>
     
       <div class="form-group col-4">
         <%= f.label :available_till_lteq, "Available Till" %>
-        <%= f.date_field :available_till_lteq, :class => "form-control", :placeholder => "Enter available till date" %>
+        <%= f.datetime_field :available_till_lteq, :class => "form-control", :placeholder => "Enter available till date" %>
       </div>
        
       <div class="form-group col-4">
         <%= f.label :monthly_price_cont, "Monthly Price" %>
-        <%= f.text_field :monthly_price_lteq, :class => "form-control", :placeholder => "Enter max monthly price" %>
+        <%= f.number_field :monthly_price_lteq, :class => "form-control", :placeholder => "Enter max monthly price" %>
       </div>
     
     </div>
@@ -147,8 +147,10 @@
     </td>
 
     <td>
-      <% monthly_price_without_symbols = listing.monthly_price.gsub(/[^0-9\s]/i, "") %>
-      <%= number_to_currency(monthly_price_without_symbols) %>
+      <%# monthly_price_without_symbols = listing.monthly_price.gsub(/[^0-9\s]/i, "") %>
+      <%#= number_to_currency(monthly_price_without_symbols) %>
+      
+      <%= number_to_currency(listing.monthly_price) %>
     </td>
 
     <td>

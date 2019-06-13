@@ -13,7 +13,7 @@
 #  country             :string
 #  amenities           :string
 #  description         :string
-#  monthly_price       :string
+#  monthly_price       :integer
 #  sublessor_id        :integer
 #  available_from      :datetime
 #  available_till      :datetime
