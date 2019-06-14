@@ -2,16 +2,6 @@
   <%= @user.first_name %>'s Listings & Bookmarks
 </h3>
 
-<!--
-<h6>User #<!%= @user.id %> details</h6>
-
-  <div class="text-info">
-    <a href="/users/edit">
-      <h6 class="text-info">Edit profile</h6>
-    </a>
-  </div>
--->
-
 <br>
 
 <!--------------------User's Listings-------------------->
@@ -23,10 +13,6 @@
     </tr>
   </tbody>
 </table> 
-
-<!--Old formatting
-<h5 class="text-info"><!%= current_user.first_name %>'s Listings</h5>
--->
 
 <table>
   <tr>
@@ -56,7 +42,7 @@
     </td>
     
     <td>
-      <%= listing.monthly_price %>
+      <%= number_to_currency(listing.monthly_price) %>
     </td>
     
     <td>
@@ -125,9 +111,6 @@
   </tbody>
 </table> 
 
-<!--Earlier formatting--
-<h5 class="text-info"><!%= current_user.first_name %>'s Bookmarks</h5>
--->
 
 <table>
   <tr>
@@ -156,7 +139,7 @@
     </td>
     
     <td>
-      <%= b_listing.monthly_price %>
+      <%= number_to_currency(b_listing.monthly_price) %>
     </td>
     
     <td>

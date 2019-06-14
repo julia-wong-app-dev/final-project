@@ -73,10 +73,6 @@
 
 <!------------------- Contact Details ------------------->
 
-<!--Old formatting
-<h5>Contact Details</h5>
--->
-
 <table class="table table-hover">
   <tbody>
     <tr class="table-info">
@@ -256,7 +252,7 @@
   <tbody>
     <tr>
       <td>
-        <%= @listing.monthly_price %>
+        <%= number_to_currency(@listing.monthly_price) %>
       </td>
     
       <td>
@@ -309,31 +305,3 @@
   </tbody>
 
 </table>
-
-<!------------------- Photos ------------------->
-
-<!--
-<h5>Photos</h5>
-
-<form action="/insert_photo_record" enctype="multipart/form-data">
-  <div>
-    <input type="hidden" value="<!%= current_user.id %>" name="user_id">
-  </div>
-
-  <div class="form-group">
-    <label for="picture">Select photo</label>
-    <input type="file" class="form-control-file" id="picture">
-  </div>
-
-  <div>
-    <p></p>
-  </div>  
-  
-  <div class="form-group">
-    <label for="comment">Photo Caption</label>
-    <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="e.g., bathroom"></textarea>
-  </div>
-
-</form>
-
--->

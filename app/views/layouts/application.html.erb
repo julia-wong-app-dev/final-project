@@ -79,68 +79,8 @@
       
     </ul>
 
-<!--------------------Navbar: Bootswatch Minty: Search-------------------->
-    
-<!--
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-    </form>
--->
-
   </div>
 </nav>
-
-<!--------------------Navbar: Basic-------------------->
-
-<!--
-  <div class="container">
-
-    <!-- ↓↓↓ Your view templates all get plugged in below ↓↓↓ -->
-<!--<nav>
-      <div>
-        <a href="/">
-          <i class="fab fa-firstdraft fa-fw"></i>
-          
-          Home
-        </a>
-      </div>
-    
-    <!% if (current_user.present?)  %>
-      <div>
-        <a href="/users/<!%= current_user.id %>">
-          <i class="fas fa-heart"></i>
-
-          My Bookmarks & Listings
-        </a>
-      </div>
-    <!% end %>
-    
-      <div>
-        <a href="/new_listing_form">
-          <i class="fas fa-plus fa-fw"></i>
-
-          Add Listing
-        </a>
-      </div>
-
-      <div>
-        <a href="/listings">
-          <i class="fas fa-clock fa-fw"></i>
-
-          Recent
-        </a>
-      </div>
-
-      <div>
-        <a href="/popular">
-          <i class="fas fa-fire fa-fw"></i>
-
-          Popular
-        </a>
-      </div>
--->
-
 
     <% if current_user.blank? %>
       
@@ -181,8 +121,7 @@
       </div>
     <% end %>
     
-<!--</nav>
--->
+
     <hr>  
     <%= yield %>
     

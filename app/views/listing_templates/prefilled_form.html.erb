@@ -8,7 +8,7 @@
 
 <form action="/update_listing_record/<%= @listing.id %>" method="post">
   
-  <!------------------- Location ------------------->
+<!------------------- Location ------------------->
 
 <table class="table table-hover">
   <tbody>
@@ -199,35 +199,6 @@
 
 <br>
 
-<!------------------- Photos -------------------->
-<!--
-<h5>Photos</h5>
-
-<form action="/insert_photo_record" enctype="multipart/form-data">
-  <div>
-    <input type="hidden" value="<!%= current_user.id %>" name="user_id">
-  </div>
-
-  <div class="form-group">
-    <label for="url">Select photo</label>
-    <input type="file" class="form-control-file" id="url">
-  </div>
-
-  <div>
-    <p></p>
-  </div>  
-  
-  <div class="form-group">
-    <label for="comment">Photo Caption</label>
-    <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="e.g., bathroom"></textarea>
-  </div>
-
-</form>
-
-
-<br>
-
--->
 <!------------------- Update Listing & Go Back ------------------->
 
   <button class="btn btn-secondary btn-lg btn-block">
